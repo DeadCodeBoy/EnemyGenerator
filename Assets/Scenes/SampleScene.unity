@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8d9925666630543b89280d1443d42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 6486652433313627136, guid: d2ea15796c7aca54db0a67f2ac5453ef, type: 3}
+  _enemyTemplate: {fileID: 4834219547695686178, guid: d2ea15796c7aca54db0a67f2ac5453ef, type: 3}
   _spawnPosition:
   - {fileID: 1404861233}
   - {fileID: 1821695774}

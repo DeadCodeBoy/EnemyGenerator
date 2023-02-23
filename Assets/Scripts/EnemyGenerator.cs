@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemy;
+    [SerializeField] private Enemy _enemyTemplate;
     [SerializeField] private Transform[] _spawnPosition;
     
     private void Start()
     {
-        StartCoroutine(_enemySpawn());
+        StartCoroutine(EnemySpawn());
     }
 
-    private IEnumerator _enemySpawn()
+    private IEnumerator EnemySpawn()
     {
-        for (int i = 0; i < _spawnPosition.Length; i++)
+        while (_spawnPosition.Length > 0)
         {
-            var enemy = Instantiate(_enemy, _spawnPosition[i].transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(2f);
-            Destroy(enemy);
+            for (int i = 0; i < _spawnPosition.Length; i++)
+            {
+                var spawnPoint = Instantiate(_enemyTemplate, _spawnPosition[i].transform.position, Quaternion.identity);
+                yield return new WaitForSeconds(2f);
+                Destroy(spawnPoint);
+            }
         }
-        Repeat();
-    }
-
-    void Repeat()
-    {
-        StartCoroutine(_enemySpawn());
     }
 }
